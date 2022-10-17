@@ -5,7 +5,7 @@ def search_code(action,email):
     # 连接数据库，查询发送的验证码
     # 建立连接
     conn = psycopg2.connect(
-            "dbname=dev-common_user_center user=ulandmaster password=k2G9!Qpr host=youland-test-db-instance-1.cjurcg0zx8s1.us-west-1.rds.amazonaws.com port=5432")
+            "dbname=dev-common-user-center user=ulandmaster password=k2G9!Qpr host=youland-test-db-instance-1.cjurcg0zx8s1.us-west-1.rds.amazonaws.com port=5432")
     # 获取游标
     cur = conn.cursor()
     # 查询数据库获取tenant_id
