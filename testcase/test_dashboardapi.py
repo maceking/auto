@@ -12,8 +12,8 @@ import requests,allure
 class Test_Dashboard:
 
     def setup_class(self):
-        self.token=Signin().signin('294991282@qq.com','Aa123456')
-
+        token=Signin().signin('294991282@qq.com','QWExMjM0NTY=')
+        self.token = token
     @allure.story('申请列表')
     def test_listapplication(self):
         login_url = f'{host}processes/user'
@@ -43,7 +43,7 @@ class Test_Dashboard:
 
     @allure.story('单独申请记录')
     def test_processesinfo(self):
-        login_url = f'{host}processes/20220810063034967073'
+        login_url = f'{host}processes/20221018055113708023'
         header = {
             'authorization': self.token,
             'accept': 'application/json,text/plain,',
@@ -56,7 +56,7 @@ class Test_Dashboard:
 
     @allure.story('预批准信')
     def test_letter(self):
-        login_url = f'{host}dashboard/letter/20220810063034967073'
+        login_url = f'{host}dashboard/letter/20221018055113708023'
         header = {
             'authorization': self.token,
             'accept': 'application/json,text/plain,',
@@ -67,7 +67,7 @@ class Test_Dashboard:
 
     @allure.story('申请summary')
     def test_summary(self):
-        login_url = f'{host}dashboard/overview/summary/20220810063034967073'
+        login_url = f'{host}dashboard/overview/summary/20221018055113708023'
         header = {
             'authorization': self.token,
             'accept': 'application/json,text/plain,',
@@ -78,7 +78,7 @@ class Test_Dashboard:
 
     @allure.story('申请状态')
     def test_taskstatus(self):
-        login_url = f'{host}dashboard/user/tasks/status/20220810063034967073'
+        login_url = f'{host}dashboard/user/tasks/status/20221018055113708023'
         header = {
             'authorization': self.token,
             'accept': 'application/json,text/plain,',
@@ -89,7 +89,7 @@ class Test_Dashboard:
 
     @allure.story('查看所有产品信息')
     def test_rateall(self):
-        login_url = f'{host}dashboard/rate/20220810063034967073/all'
+        login_url = f'{host}dashboard/rate/20221018055113708023/all'
         header = {
             'authorization': self.token,
             'accept': 'application/json,text/plain,',

@@ -12,7 +12,7 @@ class Test_usercenter():
             'user-agen': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/101.0.4951.64 Safari/537.36',
         }
         payload = {
-            "appkey": "jjHggHfNVaGvkabpQXfs",
+            "appkey": "jcDlAFZpmslrRYwUzfpP",
             "emailParam": {
                 "email": "294991281@qq.com",
                 "name": "macewf",
@@ -52,7 +52,7 @@ class Test_usercenter():
         }
         payload = {
             "newPass": "qaz123456",
-            "appkey": "jjHggHfNVaGvkabpQXfs",
+            "appkey": "jcDlAFZpmslrRYwUzfpP",
             "verifyCode": Verifycode().sendcode(action='RESET_PASS',email='294991281@qq.com'),
             "email": "294991281@qq.com",
         }

@@ -13,7 +13,7 @@ class Signin():
             'user-agen': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/101.0.4951.64 Safari/537.36',
                 }
         payload = {
-            "appkey": "jjHggHfNVaGvkabpQXfs",
+            "appkey": "jcDlAFZpmslrRYwUzfpP",
             "loginType": "YLACCOUNT_LOGIN",
             "emailParam": {
             "account": f"{account}",
@@ -39,7 +39,7 @@ class Verifycode():
         }
         payload = {
         "email": f"{email}",
-        "appkey": "jjHggHfNVaGvkabpQXfs",
+        "appkey": "jcDlAFZpmslrRYwUzfpP",
         "bizType": f"{action}",
                                         }
         resp = requests.post(sendcode_url, headers=header, json=payload)
@@ -60,7 +60,7 @@ class Verifycode():
         }
         payload = {
             "code": f"{code}",
-            "appkey": "jjHggHfNVaGvkabpQXfs",
+            "appkey": "jcDlAFZpmslrRYwUzfpP",
             "email": f"{email[0][0]}",
             "bizType": f"{action}"
                                                 }

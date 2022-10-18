@@ -9,7 +9,7 @@ def search_code(action,email):
     # 获取游标
     cur = conn.cursor()
     # 查询数据库获取tenant_id
-    sql1 = "SELECT tenant_id FROM public.yl_oss_institution_app where appkey = 'jjHggHfNVaGvkabpQXfs'"
+    sql1 = "SELECT tenant_id FROM public.yl_oss_institution_app where appkey = 'jcDlAFZpmslrRYwUzfpP'"
     try:
         cur.execute(sql1)
         tenant_ids = cur.fetchone()
