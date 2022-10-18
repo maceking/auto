@@ -1,20 +1,24 @@
-'''
+import pprint,pytest,sys
+sys.path.append('.')
 from Lib.login import Signin
 from config.config import host
 from utils.logger import logger
-import requests,allure，sys
-import pprint,pytest,sys
-sys.path.append('.')
+import requests,allure
+
+
 
 #deshboard,查询application列表
 @allure.feature('Dashboard')
 class Test_Dashboard:
 
+    def setup_class(self):
+        self.token=Signin().signin('294991282@qq.com','Aa123456')
+
     @allure.story('申请列表')
     def test_listapplication(self):
         login_url = f'{host}processes/user'
         header = {
-            'authorization':Signin().signin(account='294991281@qq.com', password='qaz123456'),
+            'authorization':self.token,
             'accept':'application/json,text/plain,',
             'user-agen':'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/101.0.4951.64 Safari/537.36',
         }
@@ -24,24 +28,11 @@ class Test_Dashboard:
         # 比对响应码
         assert resp.status_code == 200
 
-    @allure.story('单独申请记录')
-    def test_processesinfo(self):
-        login_url = f'{host}processes/20220810063034967073'
-        header = {
-            'authorization': '',
-            'accept': 'application/json,text/plain,',
-            'user-agen': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/101.0.4951.64 Safari/537.36',
-        }
-        resp = requests.get(login_url, headers=header)
-        # pprint.pprint(resp.text)
-        #比对响应码
-        assert resp.status_code == 200
-
     @allure.story('个人设置信息')
     def test_sttingsinfo(self):
         login_url = f'{host}dashboard/user/settings/info'
         header = {
-            'authorization': '',
+            'authorization': self.token,
             'accept': 'application/json,text/plain,',
             'user-agen': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/101.0.4951.64 Safari/537.36',
         }
@@ -50,11 +41,24 @@ class Test_Dashboard:
         # 比对响应码
         assert resp.status_code == 200
 
+    @allure.story('单独申请记录')
+    def test_processesinfo(self):
+        login_url = f'{host}processes/20220810063034967073'
+        header = {
+            'authorization': self.token,
+            'accept': 'application/json,text/plain,',
+            'user-agen': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/101.0.4951.64 Safari/537.36',
+        }
+        resp = requests.get(login_url, headers=header)
+        # pprint.pprint(resp.text)
+        #比对响应码
+        assert resp.status_code == 200
+
     @allure.story('预批准信')
     def test_letter(self):
         login_url = f'{host}dashboard/letter/20220810063034967073'
         header = {
-            'authorization': '',
+            'authorization': self.token,
             'accept': 'application/json,text/plain,',
             'user-agen': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/101.0.4951.64 Safari/537.36',
         }
@@ -65,7 +69,7 @@ class Test_Dashboard:
     def test_summary(self):
         login_url = f'{host}dashboard/overview/summary/20220810063034967073'
         header = {
-            'authorization': '',
+            'authorization': self.token,
             'accept': 'application/json,text/plain,',
             'user-agen': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/101.0.4951.64 Safari/537.36',
         }
@@ -76,7 +80,7 @@ class Test_Dashboard:
     def test_taskstatus(self):
         login_url = f'{host}dashboard/user/tasks/status/20220810063034967073'
         header = {
-            'authorization': '',
+            'authorization': self.token,
             'accept': 'application/json,text/plain,',
             'user-agen': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/101.0.4951.64 Safari/537.36',
         }
@@ -87,10 +91,9 @@ class Test_Dashboard:
     def test_rateall(self):
         login_url = f'{host}dashboard/rate/20220810063034967073/all'
         header = {
-            'authorization': '',
+            'authorization': self.token,
             'accept': 'application/json,text/plain,',
             'user-agen': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/101.0.4951.64 Safari/537.36',
         }
         resp = requests.get(login_url, headers=header)
         assert resp.status_code == 200
-'''
