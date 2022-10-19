@@ -5,6 +5,8 @@ from utils.utils import del_user
 
 
 class Test_usercenter():
+    def teardown_class(self):
+        del_user(deluser)
     @allure.story('注册')
     def test_signup(self):
         signup_url = 'http://dev-pos-api.youland.com/usercenter/api/user/sign_up'
@@ -76,7 +78,7 @@ class Test_usercenter():
                                             }
         resp = requests.post(chagepass_url,headers=header,json=payload)
         coderesult=Verifycode().verifycode('CHANGE_EMAIL',(payload["oldEmail"],payload['newEmail']))
-        email = payload['newEmail']
-        del_user(email)
+        global deluser
+        deluser = payload['newEmail']
         # 比对响应码
         assert resp.status_code == 200 and coderesult== True
