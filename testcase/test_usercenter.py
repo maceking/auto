@@ -1,6 +1,7 @@
 import requests, allure, sys,pprint
 sys.path.append('.')
 from Lib.login import Signin, Verifycode
+from utils.utils import del_user
 
 
 class Test_usercenter():
@@ -75,5 +76,7 @@ class Test_usercenter():
                                             }
         resp = requests.post(chagepass_url,headers=header,json=payload)
         coderesult=Verifycode().verifycode('CHANGE_EMAIL',(payload["oldEmail"],payload['newEmail']))
+        email = payload['newEmail']
+        del_user(email)
         # 比对响应码
         assert resp.status_code == 200 and coderesult== True

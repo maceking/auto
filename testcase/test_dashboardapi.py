@@ -12,8 +12,8 @@ import requests,allure
 class Test_Dashboard:
 
     def setup_class(self):
-        token=Signin().signin('294991282@qq.com','QWExMjM0NTY=')
-        self.token = token
+        self.token=Signin().signin('294991282@qq.com','QWExMjM0NTY=')
+
     @allure.story('申请列表')
     def test_listapplication(self):
         login_url = f'{host}processes/user'
