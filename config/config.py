@@ -4,4 +4,4 @@
 
 
 # pos系统url
-host = 'https://dev-pos-api.youland.com/'
+host = 'https://test-pos-api.youland.com/'

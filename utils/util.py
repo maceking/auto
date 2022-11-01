@@ -1,4 +1,3 @@
-#连接数据库查询code码
 import psycopg2
 
 def search_code(action,email):
@@ -10,7 +9,7 @@ def search_code(action,email):
     '''
     # 建立连接
     conn = psycopg2.connect(
-            "dbname=dev-common-user-center user=ulandmaster password=k2G9!Qpr host=youland-test-db-instance-1.cjurcg0zx8s1.us-west-1.rds.amazonaws.com port=5432")
+            "dbname=test-common-user-center user=ulandmaster password=k2G9!Qpr host=youland-test-db-instance-1.cjurcg0zx8s1.us-west-1.rds.amazonaws.com port=5432")
     # 获取游标
     cur = conn.cursor()
     # 查询数据库获取tenant_id
@@ -34,7 +33,7 @@ def del_user(email):
     :return: 无
     '''
     conn = psycopg2.connect(
-        "dbname=dev-common-user-center user=ulandmaster password=k2G9!Qpr host=youland-test-db-instance-1.cjurcg0zx8s1.us-west-1.rds.amazonaws.com port=5432")
+        "dbname=test-common-user-center user=ulandmaster password=k2G9!Qpr host=youland-test-db-instance-1.cjurcg0zx8s1.us-west-1.rds.amazonaws.com port=5432")
     # 获取游标
     cur = conn.cursor()
     try:

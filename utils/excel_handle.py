@@ -13,9 +13,6 @@ def is_josn(inStr):
         return False
     return True
 
-
-
-
 def get_excel_data(sheetName,caseName,*colName,excelDir=data_path+r'/Delivery_System_V1.5.xls',selectCase):
     resList = []
     #1- 加载excel
@@ -62,7 +59,7 @@ def get_excel_data(sheetName,caseName,*colName,excelDir=data_path+r'/Delivery_Sy
 
 
 if __name__ == '__main__':#ctrl+j 快捷键
-    configData = ['用例编号','标题','URL','请求参数']
+    configData = ['标题','响应预期结果','请求参数']
     print(data_path)
     res = get_excel_data('登录模块','Login',*configData,selectCase=['001','003','006','all'])
     #print(res)

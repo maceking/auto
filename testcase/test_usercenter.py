@@ -1,7 +1,7 @@
 import requests, allure, sys,pprint
 sys.path.append('.')
 from Lib.login import Signin, Verifycode
-from utils.utils import del_user
+from utils.util import del_user
 
 
 class Test_usercenter():
@@ -9,7 +9,7 @@ class Test_usercenter():
         del_user(deluser)
     @allure.story('注册')
     def test_signup(self):
-        signup_url = 'http://dev-pos-api.youland.com/usercenter/api/user/sign_up'
+        signup_url = 'http://test-pos-api.youland.com/usercenter/api/user/sign_up'
         header = {
             'accept': 'application/json',
             'user-agen': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/101.0.4951.64 Safari/537.36',
@@ -30,7 +30,7 @@ class Test_usercenter():
     @allure.story('修改密码')
     def test_changepassword(self):
 
-        chagepass_url = 'http://dev-pos-api.youland.com/usercenter/api/user/changePass'
+        chagepass_url = 'http://test-pos-api.youland.com/usercenter/api/user/changePass'
         header = {
             'authorization': Signin().signin(account='294991281@qq.com', password='qaz123456'),
             'accept': 'application/json',
@@ -47,7 +47,7 @@ class Test_usercenter():
 
     @allure.story('重置密码')
     def test_resetpassword(self):
-        resetpass_url = 'http://dev-pos-api.youland.com/usercenter/api/user/resetPass'
+        resetpass_url = 'http://test-pos-api.youland.com/usercenter/api/user/resetPass'
         header = {
             'authorization': Signin().signin(account='294991281@qq.com', password='aa123456'),
             'accept': 'application/json',
@@ -66,7 +66,7 @@ class Test_usercenter():
 
     @allure.story('修改邮箱')
     def test_changeemail(self):
-        chagepass_url = 'http://dev-pos-api.youland.com/usercenter/api/user/changeEmail'
+        chagepass_url = 'http://test-pos-api.youland.com/usercenter/api/user/changeEmail'
         header = {
             'authorization':Signin().signin(account='294991281@qq.com',password='qaz123456'),
             'accept':'application/json',
