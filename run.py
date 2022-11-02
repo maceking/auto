@@ -5,7 +5,7 @@ import pytest
 
 
 
-pytest.main(['-vs', './testcase/test_usercenter.py', '--alluredir=./report/html', '--clean-alluredir','-p' 'no:warnings'])
+pytest.main(['-vs', './testcase/teet_api.py', '--alluredir=./report/html', '--clean-alluredir','-p' 'no:warnings'])
 
 
 
