@@ -11,19 +11,19 @@ from utils.excel_handle import get_excel_data
 #deshboard,查询application列表
 @allure.feature('Dashboard')
 class Test_Dashboard:
-
-    def setup_class(self,username,password):
+    def setup_class(self,username='mace@126.com',password='QWExMjM0NTY='):
         self.token=Signin().signin(username,password)
 
     @allure.story('申请列表')
     def test_listapplication(self):
-        login_url = f'{host}processes/user'
+        login_url = f'{host}processes/user/application'
         header = {
             'authorization':self.token,
             'accept':'application/json,text/plain,',
             'user-agen':'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/101.0.4951.64 Safari/537.36',
         }
-        resp = requests.get(login_url,headers=header)
+        paylod = {"page":1,"size":50,"loanId":"","loanType":[],"stage":[],"beginTime":"","endTime":""}
+        resp = requests.post(login_url,headers=header,json=paylod)
         logger.info(resp)
         # pprint.pprint(resp.text)
         # 比对响应码

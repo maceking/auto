@@ -6,10 +6,6 @@ sys.path.append('.')
 
 
 class Test_Signin():
-    '''
-    登录获取token
-    '''
-
     @pytest.mark.parametrize('url,user', get_excel_data('登录模块', 'Login', *['URL', '请求参数'], selectCase=['all']))
     def test_signin(self,url,user):
         login_url = f'{host}{url}' #登录url
