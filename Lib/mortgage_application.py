@@ -184,7 +184,7 @@ def varibles_cri():
     resp = requests.put(login_url, headers=header, json=paylod)
     print('-----即将开始征信查询-----')
 
-#
+#准备填写个人信息
 def varibles_creditscore():
     login_url = f'{host}processes/{processInsId}/variables'
     header = {
@@ -222,6 +222,7 @@ def varibles_creditscore():
     resp = requests.put(login_url, headers=header, json=paylod)
     print('---确认查询---')
 
+#填写个人信息
 def varibles_myself():
     login_url = f'{host}tasks/{taskid2}/variables'
     header = {
@@ -257,6 +258,7 @@ def varibles_myself():
     resp = requests.put(login_url, headers=header, json=paylod)
     print('-----更新征信查询变量------')
 
+#查询征信
 def credit_check():
     login_url = f'{host}tasks/{taskid2}'
     header = {
@@ -271,6 +273,7 @@ def credit_check():
     taskid3 = data[0]['extra']['id']
     print('-----查询征信-----')
 
+#查询成功，准备填写个人收入
 def varibles_cedit():
     login_url = f'{host}processes/{processInsId}/variables'
     header = {
@@ -308,6 +311,7 @@ def varibles_cedit():
     resp = requests.put(login_url, headers=header, json=paylod)
     print('----征信查询成功----')
 
+#即将填写收入
 def varibles_selfincome():
     login_url = f'{host}{processInsId}/variables'
     header = {
@@ -345,6 +349,7 @@ def varibles_selfincome():
     resp = requests.put(login_url, headers=header, json=paylod)
     print('-----即将开始填写收入-----')
 
+#填写收入
 def varibles_incomeconfirm():
     login_url = f'{host}tasks/{taskid3}/variables'
     header = {
@@ -383,6 +388,7 @@ def varibles_incomeconfirm():
     resp = requests.put(login_url, headers=header, json=paylod)
     print('-----即将确认收入-----')
 
+#保存收入信息
 def selfincome_confirm():
     login_url = f'{host}tasks/{taskid3}'
     header = {
@@ -397,6 +403,7 @@ def selfincome_confirm():
     taskid4 = data[0]['extra']['id']
     print('-----保存收入信息-----')
 
+#准备填写房产地址
 def varibles_startprd():
     login_url = f'{host}processes/{processInsId}/variables'
     header = {
@@ -434,6 +441,7 @@ def varibles_startprd():
     resp = requests.put(login_url, headers=header, json=paylod)
     print('-----确认收入,开始下一阶段-----')
 
+#共借人信息
 def varibles_isOnTheTitle():
     login_url = f'{host}tasks/{taskid4}/variables'
     header = {
@@ -458,6 +466,7 @@ def varibles_isOnTheTitle():
     resp = requests.put(login_url, headers=header, json=paylod)
     print('-----notitle提交-----')
 
+#共借人信息确认
 def notitle_confirm():
     login_url = f'{host}tasks/{taskid4}'
     header = {
@@ -472,6 +481,7 @@ def notitle_confirm():
     taskid5 = data[0]['extra']['id']
     print('-----保存notitle信息-----')
 
+#其他信息确认
 def other_confirm():
     login_url = f'{host}tasks/{taskid5}'
     header = {
@@ -486,6 +496,7 @@ def other_confirm():
     taskid6 = data[0]['extra']['id']
     print('-----保存other信息-----')
 
+#房产信息确认
 def varibles_assets():
     login_url = f'{host}processes/{processInsId}/variables'
     header = {
@@ -523,6 +534,7 @@ def varibles_assets():
     resp = requests.put(login_url, headers=header, json=paylod)
     print('-----即将开始下阶段-----')
 
+#其房产信息确认
 def varibles_ownCurrentEstate():
     login_url = f'{host}tasks/{taskid6}/variables'
     header = {
@@ -548,6 +560,7 @@ def varibles_ownCurrentEstate():
     resp = requests.put(login_url, headers=header, json=paylod)
     print('-----提交ownCurrentEstate-----')
 
+#更新当前流程
 def varibles_processtag():
     login_url = f'{host}processes/{processInsId}/variables'
     header = {
